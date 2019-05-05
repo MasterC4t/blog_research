@@ -11,7 +11,7 @@ My analysis of french fry quality. The search for the greastest french fry is ri
 
 I got to make fun charts like this one:
 
-[](/starch_madness/yelp_score.png)
+![](/starch_madness/yelp_score.png)
 
 # Jobless Project
 
