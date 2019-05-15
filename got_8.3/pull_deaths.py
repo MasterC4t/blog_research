@@ -17,40 +17,28 @@ time.sleep(5)
 
 # Find Death Episodes
 
-# Get the episode minute
-death_time_list = browser.find_elements_by_class_name('bubble')
-death_times = [int(death.text.split(':')[0]) for death in death_time_list]
+eps = browser.find_elements_by_class_name('episode-container')
+print(len(eps))
 
-# Add what episode each character died in
+death_name_list = []
 death_ep_list = []
-ep_num = 1
-time_stamp = 0
-for minute in death_times:
-    if minute < time_stamp:
-        ep_num += 1
+for i in range(len(eps)):
+    episode = eps[i]
+    ep_number = i + 1
+    death_containers = episode.find_elements_by_class_name('death-right')
+    if len(death_containers) > 0:
+        death_names = [death.find_element_by_tag_name('h3').text for death in death_containers]
+    for person in death_names:
+        death_name_list.append(person)
+        death_ep_list.append(ep_number)
 
-    death_ep_list.append(ep_num)
-    time_stamp = minute
+death_dict = dict(zip(death_name_list, death_ep_list))
 
-# Find Death Names
-death_container = browser.find_elements_by_class_name('death-right')
-death_names = [death.find_element_by_tag_name('h3').text for death in death_container]
-
-# print(death_times.text)
-# print(len(seasons))
-# print(len(death_times))
-# print(len(death_names))
-
-# Make Dict
-death_dict = dict(zip(death_names, death_ep_list))
+print(death_dict['Mace Tyrell'])
 
 # Save to Pickle
 with open('got_data/death_dict.pickle', 'wb') as handle:
     pickle.dump(death_dict, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-# Should be 50 (37)
-# Should be 60 (46)
-# Should be 59 (45)
 
-print(death_dict)
 browser.quit()
