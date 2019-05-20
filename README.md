@@ -19,3 +19,13 @@ I got to make fun charts like this one:
 #### Status: Done
 
 I wanted to play around with government data, and this was an interesting angle to take. I got taken down a few rabbit holes, and ended up analyzing ways to take over the world and teach animals to read. It was a good time.
+
+# GoT 8.3
+### Why Game of Thrones Season 8 Episode 3 was objectively Bad 
+#### Done
+
+I wanted to figure out how to value a characters death in a show based on objective metrics, and Game of Thrones was a good way to do it. Also the episode was terrible in itself and worthly of bashing
+
+Sample Chart:
+
+![](/got_8.3/got_83media.png)
